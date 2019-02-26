@@ -1,0 +1,92 @@
+1) Packages are modules that contain other modules.
+2) Packages are generally implemented as directories containing a special __init__.py file
+3) The __init__.py file is executed when the package is imported.
+4) Packages can contain sub packages which themselves are implemented with __init__.py files in directories.
+
+The module objects or packages have a __path__ attribute.
+
+To create a package: First create a package root(my_package/) in the sys path. (path_entry/) /must be in sys.path/
+then in the package root create a __init__.py This file which we'll often call the package init file, is what makes the package a module.
+
+1) On Linux system create a directory (e.g. reader) with mkdir
+2) To make that dir into a package, we create the package file (init) with $ touch reader/__init__.py
+3) From this point, reader can be imported.
+
+
+Check the reader example.
+
+
+Absolute imports: imports which use a full path to the module.
+for example from reader.reader import Reader
+
+Relative imports: importing from the same package 
+
+__all__ is a list of attribute names imported via 'from module import *'
+
+__all__ = ['bz2_opener', 'gzip_opener']
+
+
+*****************************************************************************************************************
+
+
+Namespace packages:
+Packages split across several directories
+Useful for splitting large packages into multiple parts
+No __init__.py file, this avoids complex initialization ordering problems.
+
+Importing namespace packages (How does Python find them? Let's try it with foo.py):
+After we write import foo:
+
+1) Python scans all entries in sys.path
+2) If a matching directory with __init__.py is found, a normal package is loaded.
+3) If foo.py is found, then it is loaded.
+4) Otherwise, all matching directories in sys.path are considered part of the namespace package.
+
+
+*****************************************************************************************************************
+
+
+Packages are often developed because we want something to be executed.
+Enter Executable directories: directories containing an entry point for Python execution!
+You specify a main entry point which is run, when the package is executed by python.
+
+Python executable directory: 
+__main__.py
+
+This way, when we run the following: python3 reader test.gz from the command line, we get the message that it's compressed with gzip
+
+Executable zip files: zip file containing an entry point for Python execution
+Create a zip file from the top level reader directory:
+
+$ cd reader
+$ zip -r ../reader.zip *
+
+$ python3 reader.zip test.gz
+
+This will give us the exact same outcome as before
+
+Recommended project structure:
+
+project_name
++--__main__.py
++--project_name
+|  +--__init__.py
+|  +--more_source.py
+|  +--subpackage1
+|  |  +--__init__.py
+|  +--test
+|     +--__init__.py
+|     +--test_code.py
++--setup.py
+
+
+*****************************************************************************************************************
+
+
+The singleton pattern, modules as singletons:
+Modules are only executed once, when first imported.
+
+
+
+
+

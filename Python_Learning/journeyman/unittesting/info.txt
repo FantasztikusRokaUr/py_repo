@@ -1,0 +1,82 @@
+A unit test checks the behaviour of an element of code:
+- method or function,
+- a module or class
+
+Creating them helps you understand what to build, how to design units, grants regression protection,
+and documents how the units work.
+Regression: Something worked before, but doesn't work now.
+Unit tests fail and point out why it doesn't work anymore.
+
+
+Unit tests are automated tests and:
+- is designed by a human
+- runs without intervention
+- reports results unambiguously as "pass" or "fail"
+
+
+The idea is to share this with other developers as well, to check if our code runs on their systems as well.
+
+DON'T USE FOR:
+- file systems,
+- databases
+- network testing
+(sometimes can be useful, but not the best idea)
+
+It can't guarantee that your code will work, and isn't really good with security, performance or network testing.
+
+
+TDD means Test Driven Development
+First you write unittests to check what you want to achieve, then write the code according to your desires
+
+The Test Case Design:
+1) Arrange: Set up the object to be tested & collaborators
+2) Act: Exercise functionality on the object
+3) Assert: Make claims about the object & its collaborators.
+(4) Cleanup: Release resourced, restore to original state.
+
+Test Case Names are also important, it gives a hint of what you are testing, and help understand why you want to test it.
+
+The best method for unit testing is right in it's name
+UNIT testing
+Decompose the problem into units that are independently testable (loose coupling)
+Desing the Interface separately from doing the Implementation
+This is shown in the telemetry examples
+
+
+The best way to make a personal Development Process is to develop your code while you develop you tests.
+That's why you write test for small units, then implement those units, hence it works well with microservices,
+devops ideas, containers, continuous integration and deployment (CI/CD).
+So the best idea is:
+
+1) Write a test
+2) Write a little code
+3) Refactor
+4) Repeat
+
+
+
+Should look at pytest.
+Should look at doctest.
+
+
+Test Doubles: The Class under test doesn't know it isn't 'talking' to the real object
+This allows us to contol what happens to the class we want to test.
+
+1) Stubs: 
+
+
+2) Fakes: 
+
+
+3) Mocks: 
+
+
+4) Test spies: 
+
+
+5) Dummy objects: 
+
+Will watch videos and read books on this later, can't bear the current 'teachers' tone.
+
+
+
