@@ -5,10 +5,7 @@ Created on Feb 9, 2019
 '''
 from flask import Flask, render_template, redirect, url_for, request
 
-from webdev.student import Student
-
-students = []
-
+from student import Student
 app = Flask(__name__)
 
 

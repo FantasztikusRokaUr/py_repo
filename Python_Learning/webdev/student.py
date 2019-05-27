@@ -10,7 +10,6 @@ class Student:
     '''
     classdocs
     '''
-    
     school_name = "Fox school"
 
     def __init__(self, name, student_id = 123):
