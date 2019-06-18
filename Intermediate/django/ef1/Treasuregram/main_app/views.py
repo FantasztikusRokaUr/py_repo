@@ -2,15 +2,16 @@
 from __future__ import unicode_literals
 
 from django.shortcuts import render
-
+from treasures import Treasures
 
 # Create your views here.
 
 def index(request):
-	name = 'Gold Nugger'
-	value = 1000.00
-	context = {'treasure_name': name,
-			   'treasure_value': value}
 
-	return render(request, 'index.html', context)
+	return render(request, 'index.html', {'treasures':treasures})
 	
+treasures = [
+	Treasures('Gold Nugget', 500.0, 'gold', 'Basin, GE'),
+	Treasures("Fool's Gold", 000.0, 'pyrite', 'Hill, NE'),
+	Treasures('Coffee Can', 20.0, 'tin', 'Shores, BA')
+	]

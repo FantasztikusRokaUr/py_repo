@@ -24,3 +24,7 @@ name, value, material, location
 Use a class to define information about a treasure object
 Use a list to store all of the Treasure objects called treasures
 Then I have just one variable to put in my context - treasures.
+
+
+Create the class and add it to the views.py
+
