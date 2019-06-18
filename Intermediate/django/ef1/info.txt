@@ -1,0 +1,86 @@
+Browser (e.g. chrome) send request url to web server.
+Django handles validation processing and rendering.
+The server sends back the HTML and assets.
+
+Model View Controller
+
+User -> View (Controller) -> Model -> Template (View)
+		processes data	   store&val  renders HTML
+
+
+MTV in django = MVC
+
+Projects vs Apps:
+
+Project: Pinterest
+Apps: pinterest.com, blog.pinterest.com, careers.pinterest.com
+
+
+settings.py holds our project settings
+urls.py holds our urls
+manage.py utility for administrative tasks
+
+run Django server:
+to serve it locally:
+
+$ python manage.py runserver
+
+create an app inside our project:
+
+$ python manage.py startapp main_app
+
+This will create a main app folder and a bunch of files inside
+
+let's create our first view in views.py
+
+a view is a python function that takles in a web request and returns a web response
+
+if we open it, it simply imports render from django shortcuts.
+
+view.py:
+
+from django.shortcuts import render
+from django.http import HttpResponse
+
+# Create your views here.
+
+def index(request):
+	return HttpResponse('<h1>Hello Explorers!</h1>')
+
+
+We have to map this view to a URL.
+We want the URL/index to go to the index view we wrote.
+Django has a URL dispatcher.
+So:
+
+localhost:8000/index -> URL dispatcher(Treasuregram/urls.py) matches the requested URL to the correct view -> View will return the http response (Hello explorers)
+
+in the urls.py, under the urlpatterns we add:
+
+url(r'^index/'			<- string is raw to avoid escape
+	views.index),		<- addresses index function in view.py
+
+And we have to import:
+from main_app import views
+
+
+URL dispatcher best practices:
+
+Let's get rid of /index
+First we remove the index/ from our regex and match an empty path to load the index view.
+
+urls.py urlpatterns:
+
+url ('^', views.index)
+
+We can create urls.py in the app folder as well
+By doing that we'll have a project url dispatcher and an app URLD
+
+to have them in the project urls.py:
+
+url('^', include('main_app.urls'))
+we still have to import the views in the urls.py (app).
+from . import views
+
+Check the urls.py files!
+
