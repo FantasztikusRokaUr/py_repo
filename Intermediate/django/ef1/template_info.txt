@@ -1,0 +1,26 @@
+The request from the browser comes in
+The URL dispatcher matches the correct view
+The View should render a template
+
+The template is just an html file that can have dynamic data
+Let's create an html file.
+
+1) I have to create a templates folder in the main_app folder because Django automatically looks for templates in the app
+if the app is registered with the Django project in settings.
+
+To register:
+
+settings.py there is a list of installed list. I have to add main_app to the list.
+html templates must be put in the templates folder.
+
+in the views we create a context for data with key-value pairs and use it as a parameter for the render function.
+
+in the html template we access these variables with double curly brackets (mustaches)
+
+What if we have a lot more complex data? or a bunch of treasures? 
+
+name, value, material, location
+
+Use a class to define information about a treasure object
+Use a list to store all of the Treasure objects called treasures
+Then I have just one variable to put in my context - treasures.
