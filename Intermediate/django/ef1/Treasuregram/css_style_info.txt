@@ -1,0 +1,8 @@
+For styling the template, we create a static folder in the main app folder for the .css files.
+
+Then in index.html we add {% load staticfiles %} line
+also in the head we place:
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+
+we can add image, background etc.

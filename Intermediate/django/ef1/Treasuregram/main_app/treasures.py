@@ -11,7 +11,7 @@ class Treasures:
     '''
 
 
-    def __init__(self, name, value, material, location):
+    def __init__(self, name, value, material, location, img_url):
         '''
         Constructor
         '''
@@ -19,5 +19,6 @@ class Treasures:
         self.value = value
         self.material = material
         self.location = location
+        self.img_url = img_url
 
         
