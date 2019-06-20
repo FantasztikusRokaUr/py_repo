@@ -1,0 +1,12 @@
+localhost:8000/admin
+
+to admin.py in main_app folder:
+
+from .models import Treasure
+
+#register my model here
+admin.site.register(Treasure)
+
+
+####
+

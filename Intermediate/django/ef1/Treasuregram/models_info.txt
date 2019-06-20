@@ -1,0 +1,40 @@
+models provide our tool with data
+
+we have a class treasures for treasures, but we can replace it with a model.
+
+in models.py:
+
+from django.db import models
+
+# Create your models here.
+class Treasure(models.Model):
+    name = models.CharField(max_length=100)
+    value = models.DecimalField(max_digits=10, decimal_places=2)
+    material = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    img_url = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.name
+        
+        
+we create a treasure class inheriting from the models.Model 
+to not get errors, we define max length, digits etc.
+set max_length of my field or give deafult values is important of db views etc
+
+A model describes how we want to store the data in db 
+When we create a model and model objects in Django we create a DB table and DB entries (without writing SQL)
+
+The Django ORM (Obejct Relational Mapping) translates Python to SQL.
+If I change the model though, I have to do migration as well
+
+1, python manage.py makemigrations
+2, python manage.py migrate
+
+To preview the SQL commands that will be run:
+
+python manage.py sqlmigrate main_app 0001
+
+the django shell: python manage.py shell
+
+in the shell we can create model objects.
