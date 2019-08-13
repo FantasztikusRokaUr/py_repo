@@ -8,11 +8,12 @@ from mysql.connector import Error
 
 def connect():
     """Connect to MySQL DB"""
-    try:
-        my_db_con = mysql.connector.connect(host='172.19.0.2',
+    my_db_con = mysql.connector.connect(host='172.18.0.2',
                                         database='my_data',
                                         user='root',
                                         password='dbrpw')
+    
+    try:        
         if my_db_con.is_connected():
             print('Connection established')
         else:
